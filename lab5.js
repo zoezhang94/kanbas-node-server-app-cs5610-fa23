@@ -35,16 +35,13 @@ function Lab5(app) {
     res.json(todos);
   });
 
-  app.get("/a5/todos/:id/title/:newTitle", (req, res) => {
-    const { id, newTitle } = req.params;
-    const todo = todos.find((todo) => todo.id === parseInt(id));
-    if (!todo) {
-      res.status(404).send(`Todo not found`);
-      return;
-    }
-    todo.title = newTitle;
+  app.get("/a5/todos/:id/title/:title", (req, res) => {
+    const { id, title } = req.params;
+    const todo = todos.find((t) => t.id === parseInt(id));
+    todo.title = title;
     res.json(todos);
   });
+
 
   app.get("/a5/todos/:id/completed/:newCompleted", (req, res) => {
     const { id, newCompleted } = req.params;
@@ -59,12 +56,8 @@ function Lab5(app) {
 
   app.get("/a5/todos/:id/delete", (req, res) => {
     const { id } = req.params;
-    const index = todos.findIndex((todo) => todo.id === parseInt(id));
-    if (index === -1) {
-      res.status(404).send(`Todo not found`);
-      return;
-    }
-    todos.splice(index, 1);
+    const todo = todos.find((t) => t.id === parseInt(id));
+    todos.splice(todos.indexOf(todo), 1);
     res.json(todos);
   });
 
@@ -89,6 +82,12 @@ function Lab5(app) {
     res.json(todos); 
   });
   
+  app.get("/a5/todos/:id", (req, res) => {
+    const { id } = req.params;
+    const todo = todos.find((t) => t.id === parseInt(id));
+    res.json(todo);
+  });
+
 
 
 
