@@ -11,8 +11,12 @@ import "dotenv/config";
 const app = express();
 app.use(cors(
     {
-        origin: process.env.FRONTEND_URL
-      }
+        credentials: true,
+        origin: [
+          process.env.FRONTEND_URL,
+          'https://a5--clinquant-lolly-c94d9c.netlify.app'
+        ]
+        }
     
 ));
 app.use(express.json());
