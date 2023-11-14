@@ -19,7 +19,7 @@ function Lab5(app) {
   app.post("/a5/todos", (req, res) => {
     const newTodo = {
       ...req.body,
-      id: todos.length + 1,
+      id: new Date().getTime(),
     };
     todos.push(newTodo);
     res.json(todos);
@@ -27,7 +27,7 @@ function Lab5(app) {
 
   app.get("/a5/todos/create", (req, res) => {
     const newTodo = {
-      id: todos.length + 1,
+      id: new Date().getTime(),
       title: "New Task",
       completed: false,
     };
@@ -35,16 +35,13 @@ function Lab5(app) {
     res.json(todos);
   });
 
-  app.get("/a5/todos/:id/title/:newTitle", (req, res) => {
-    const { id, newTitle } = req.params;
-    const todo = todos.find((todo) => todo.id === parseInt(id));
-    if (!todo) {
-      res.status(404).send(`Todo not found`);
-      return;
-    }
-    todo.title = newTitle;
+  app.get("/a5/todos/:id/title/:title", (req, res) => {
+    const { id, title } = req.params;
+    const todo = todos.find((t) => t.id === parseInt(id));
+    todo.title = title;
     res.json(todos);
   });
+
 
   app.get("/a5/todos/:id/completed/:newCompleted", (req, res) => {
     const { id, newCompleted } = req.params;
@@ -59,12 +56,8 @@ function Lab5(app) {
 
   app.get("/a5/todos/:id/delete", (req, res) => {
     const { id } = req.params;
-    const index = todos.findIndex((todo) => todo.id === parseInt(id));
-    if (index === -1) {
-      res.status(404).send(`Todo not found`);
-      return;
-    }
-    todos.splice(index, 1);
+    const todo = todos.find((t) => t.id === parseInt(id));
+    todos.splice(todos.indexOf(todo), 1);
     res.json(todos);
   });
 
@@ -81,14 +74,21 @@ function Lab5(app) {
 
   app.put("/a5/todos/:id", (req, res) => {
     const { id } = req.params;
-    const todoIndex = todos.findIndex((t) => t.id === parseInt(id));
-  
-    if (todoIndex !== -1) {
-      todos[todoIndex].title = req.body.title;
-    }
-    res.json(todos); 
+    const todo = todos.find((t) => t.id === parseInt(id));
+    todo.title = req.body.title;
+    todo.description = req.body.description;
+    todo.due = req.body.due;
+    todo.completed = req.body.completed;
+    res.sendStatus(200);
   });
+
   
+  app.get("/a5/todos/:id", (req, res) => {
+    const { id } = req.params;
+    const todo = todos.find((t) => t.id === parseInt(id));
+    res.json(todo);
+  });
+
 
 
 
