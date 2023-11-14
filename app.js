@@ -9,15 +9,15 @@ import AssignmentRoutes from './assignments/routes.js';
 import "dotenv/config";
 
 const app = express();
-app.use(cors(
-  {
+console.log(process.env.FRONTEND_URL);
+
+app.use(
+  cors({
     credentials: true,
-    origin: [
-      process.env.FRONTEND_URL, 
-      process.env.REMOTE_URL
-    ]
-  }
-));
+    origin: process.env.FRONTEND_URL
+  })
+);
+
 
 app.use(express.json());
 Lab5(app);
