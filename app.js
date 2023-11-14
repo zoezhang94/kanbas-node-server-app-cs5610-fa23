@@ -10,15 +10,15 @@ import "dotenv/config";
 
 const app = express();
 app.use(cors(
-    {
-        credentials: true,
-        origin: [
-          process.env.FRONTEND_URL,
-          'https://a5--clinquant-lolly-c94d9c.netlify.app'
-        ]
-        }
-    
+  {
+    credentials: true,
+    origin: [
+      process.env.FRONTEND_URL, 
+      process.env.REMOTE_URL
+    ]
+  }
 ));
+
 app.use(express.json());
 Lab5(app);
 CourseRoutes(app);
