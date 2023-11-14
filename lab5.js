@@ -19,7 +19,7 @@ function Lab5(app) {
   app.post("/a5/todos", (req, res) => {
     const newTodo = {
       ...req.body,
-      id: todos.length + 1,
+      id: new Date().getTime(),
     };
     todos.push(newTodo);
     res.json(todos);
@@ -27,7 +27,7 @@ function Lab5(app) {
 
   app.get("/a5/todos/create", (req, res) => {
     const newTodo = {
-      id: todos.length + 1,
+      id: new Date().getTime(),
       title: "New Task",
       completed: false,
     };
