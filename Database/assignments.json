@@ -1,74 +1,63 @@
-[
-    {
-      "_id": "A101",
-      "title": "A1 SETUP",
-      "description": "Week 0 SETUP - Week starting on Monday",
-      "dueDate": "SEP 18, 2022 at 11:59 PM",
-      "course": "RS101"
-    },
-    {
-      "_id": "A102",
-      "title": "A2 HTML",
-      "description": "Week 1 HTML - Week starting on Monday",
-      "dueDate": "SEP 23, 2022 at 11:59 PM",
-      "course": "RS101"
-    },
-    {
-      "_id": "A103",
-      "title": "A3 JAVASCRIPT",
-      "description": "Week 2 JAVASCCSSRIPT - Week starting on Monday",
-      "dueDate": "OCT 16, 2022 at 11:59 PM",
-      "course": "RS101"
-    },
-
-    {
-      "_id": "A104",
-      "title": "A4 BOOTSTRAP",
-      "description": "Week 3 CSS - Week starting on Monday",
-      "dueDate": "OCT 23, 2022 at 11:59 PM",
-      "course": "RS101"
-    },
-    {
-      "_id": "A201",
-      "title": "A4 BOOTSTRAP",
-      "description": "Week 3 CSS - Week starting on Monday",
-      "dueDate": "OCT 23, 2022 at 11:59 PM",
-      "course": "RS102"
-    },
-    {
-      "_id": "A202",
-      "title": "A5 JAVASCRIPT",
-      "description": "Week 4 JAVASCRIPT - Week starting on Monday",
-      "dueDate": "OCT 16, 2022 at 11:59 PM",
-      "course": "RS102"
-    },
-    {
-      "_id": "A203",
-      "title": "A6 REACT",
-      "description": "Week 5 REACT - Week starting on Monday",
-      "dueDate": "OCT 23, 2022 at 11:59 PM",
-      "course": "RS102"
-    },
-    {
-      "_id": "A301",
-      "title": "A7 PROPULSION",
-      "description": "Week 6 PROPULSION - Week starting on Monday",
-      "dueDate": "NOV 1, 2022 at 11:59 PM",
-      "course": "RS103"
-    },
-    {
-      "_id": "A302",
-      "title": "A8 COMBUSTION",
-      "description": "Week 7 COMBUSTION - Week starting on Monday",
-      "dueDate": "NOV 8, 2022 at 11:59 PM",
-      "course": "RS103"
-    },
-    {
-      "_id": "A303",
-      "title": "A9 NOZZLE DESIGN",
-      "description": "Week 8 NOZZLE DESIGN - Week starting on Monday",
-      "dueDate": "NOV 15, 2022 at 11:59 PM",
-      "course": "RS103"
-    }
-  ]
-  
+[{
+  "_id": {
+    "$oid": "6557fcb7a11aca237708374b"
+  },
+  "title": "Propulsion Assignment",
+  "course": "RS101"
+},
+{
+  "_id": {
+    "$oid": "6557fcb7a11aca237708374c"
+  },
+  "title": "Combustion Analysis",
+  "course": "RS101"
+},
+{
+  "_id": {
+    "$oid": "6557fcb7a11aca237708374d"
+  },
+  "title": "Nozzle Design Project",
+  "course": "RS101"
+},
+{
+  "_id": {
+    "$oid": "6557fcb7a11aca237708374e"
+  },
+  "title": "Aerodynamics Quiz",
+  "course": "RS102"
+},
+{
+  "_id": {
+    "$oid": "6557fcb7a11aca237708374f"
+  },
+  "title": "Flow Analysis",
+  "course": "RS102"
+},
+{
+  "_id": {
+    "$oid": "6557fcb7a11aca2377083750"
+  },
+  "title": "Heating Analysis",
+  "course": "RS102"
+},
+{
+  "_id": {
+    "$oid": "6557fcb7a11aca2377083751"
+  },
+  "title": "Structural Design Task",
+  "course": "RS103"
+},
+{
+  "_id": {
+    "$oid": "6557fcb7a11aca2377083752"
+  },
+  "title": "Orbital Calculations",
+  "course": "RS103"
+},
+{
+  "_id": {
+    "$oid": "6557fcb7a11aca2377083753"
+  },
+  "title": "Systems Engineering Exam",
+  "course": "RS103"
+}]
