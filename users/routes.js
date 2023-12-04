@@ -1,14 +1,16 @@
 import * as dao from './dao.js';
 
-let currentUser = null;
+// let currentUser = null;
+
 
 function UserRoutes(app) {
-    
+
     const updateUser = async (req, res) => {
         const id = req.params.id;
         const newUser = req.body;
         const status = await dao.updateUser(id, newUser);
-        currentUser = await dao.findUserById(id);
+        const currentUser = await dao.findUserById(id);
+        req.session["currentUser"] = currentUser;
         res.json(status);
     }
     
@@ -63,14 +65,16 @@ function UserRoutes(app) {
         const {username,password}=req.body;
         const user = await dao.findUserByCredentials(username,password);
         if(user){
-            currentUser = user;
+            const currentUser = user;
+            req.session["currentUser"] = currentUser;
             res.json(user);
         }else{
             res.sendStatus(403);
         }
     }
     const signOut = async (req,res) => {
-        currentUser = null;
+            // currentUser = null;
+        req.session.destroy();
         res.sendStatus(200);
     };
 
@@ -81,11 +85,13 @@ function UserRoutes(app) {
           res.status(400).json(
             { message: "Username already taken" });
         }
-        currentUser = await dao.createUser(req.body);
+        const currentUser = await dao.createUser(req.body);
+        req.session["currentUser"] = currentUser;
         res.json(currentUser);
       };    
 
     const account = async (req,res) => {
+        const currentUser = req.session["currentUser"];
         if(!currentUser){
             res.sendStatus(403);
             return;
